@@ -16,9 +16,13 @@ public class QRController {
 
     private final PlaceService menuService;
 
+    @GetMapping("/test")
+    public String controllerTest() {
+        return "working well";
+    }
+
     @GetMapping("/place/{name}")
     public void getPlace(@PathVariable("name") Long id) {
         menuService.findMenu(id).forEach(objects -> System.out.println(Arrays.toString(objects)));
-
     }
 }
